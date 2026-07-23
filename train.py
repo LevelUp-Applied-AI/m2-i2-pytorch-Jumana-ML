@@ -20,19 +20,16 @@ import torch.nn as nn
 class HousingModel(nn.Module):
     """Neural network for predicting housing prices from property features.
 
-    Architecture: Linear(5, 32) -> ReLU -> Linear(32, 1)
+    Architecture: Linear(5, hidden_size) -> ReLU -> Linear(hidden_size, 1)
     """
 
-    def __init__(self):
+    def __init__(self, hidden_size=32): # أضفنا hidden_size=32 كقيمة افتراضية
         """Define the model layers."""
         super().__init__()
-        # Define three layers as attributes:
-        # 5 input features → 32 hidden units
-        self.layer1 = nn.Linear(5, 32)
-        # Activation function
+        # نستخدم المتغير hidden_size بدلاً من الرقم الثابت 32
+        self.layer1 = nn.Linear(5, hidden_size)
         self.relu = nn.ReLU()
-        # 32 hidden → 1 output (price prediction)
-        self.layer2 = nn.Linear(32, 1)
+        self.layer2 = nn.Linear(hidden_size, 1)
 
     def forward(self, x):
         """Define the forward pass.
