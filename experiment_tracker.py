@@ -106,7 +106,7 @@ def run_experiment_grid():
     plt.ylabel('Test MAE (Lower is better)')
     plt.title('Hyperparameter Performance: LR vs MAE')
     plt.legend()
-    plt.grid(True, sn="both", ls="-", alpha=0.5)
+    plt.grid(True, which="both", ls="-", alpha=0.5)
     plt.savefig('experiment_summary.png')
     print("\nSummary visualization saved as experiment_summary.png")
 
